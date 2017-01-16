@@ -16,7 +16,9 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - "backpack/crud": "^3.1"
 - "backpack/settings": "^2.0"
 - "backpack/pagemanager": "^1.1"
+- "cviebrock/eloquent-sluggable": "^4.1"
 - Menu CRUD Model + Controller
+- News (Articles + Categories + Tags) CRUD Models + Controllers
 
 ## Pack for development (local) ENV additionaly contains
 - "backpack/generators": "^1.1"
