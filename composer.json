@@ -11,7 +11,8 @@
         "backpack/crud": "^3.1",
         "backpack/settings": "^2.0",
         "backpack/pagemanager": "^1.1",
-        "cviebrock/eloquent-sluggable": "^4.1"
+        "cviebrock/eloquent-sluggable": "^4.1",
+        "backpack/permissionmanager": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

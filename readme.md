@@ -11,18 +11,19 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
 ## Pack for production ENV contains
-- "laravel/framework": "5.3.*"
-- "backpack/base": "^0.7.14"
-- "backpack/crud": "^3.1"
-- "backpack/settings": "^2.0"
-- "backpack/pagemanager": "^1.1"
-- "cviebrock/eloquent-sluggable": "^4.1"
+- "laravel/framework": "5.3.*" (Laravel Framework)
+- "backpack/base": "^0.7.14" (Base Backpack package)
+- "backpack/crud": "^3.1" (Basic CRUD package)
+- "backpack/settings": "^2.0" (Settings CRUD Model + Controller)
+- "backpack/pagemanager": "^1.1" (Page CRUD Model + Controller + PageTemplate + PagesController)
+- "cviebrock/eloquent-sluggable": "^4.1" (Create slugs automaticaly)
+- "backpack/permissionmanager": "^2.1" (Permission Manager - [![Usage 1]](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [![Usage 2]](https://github.com/spatie/laravel-permission#usage))
 - Menu CRUD Model + Controller
 - News (Articles + Categories + Tags) CRUD Models + Controllers
 
 ## Pack for development (local) ENV additionaly contains
-- "backpack/generators": "^1.1"
-- "laracasts/generators": "^1.1"
+- "backpack/generators": "^1.1" (console backpack crud generator)
+- "laracasts/generators": "^1.1" (for more info see "php artisan list"
 - "barryvdh/laravel-ide-helper": "^2.2"
 - "barryvdh/laravel-debugbar": "^2.3"
 
@@ -52,10 +53,16 @@ DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
 
-- Migrate sql queries + DB demo seeds for Settings Model
+- Migrate sql queries + DB demo seeds for Settings Model (Run in your "yourproject.dev" folder)
 ```
 php artisan migrate
 php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
+```
+
+- Maybe you need to change folders permissions (Run in your "yourproject.dev" folder)
+```
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 - Activate Laravel Framework plugin in PHPStorm
