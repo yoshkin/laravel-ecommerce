@@ -14,6 +14,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - "laravel/framework": "5.3.*"
 - "backpack/base": "^0.7.14"
 - "backpack/crud": "^3.1"
+- "backpack/settings": "^2.0"
 
 ## Pack for development (local) ENV additionaly contains
 - "backpack/generators": "^1.1"
@@ -42,6 +43,11 @@ php artisan key:generate
 - Migrate sql queries
 ```
 php artisan migrate
+```
+
+- DB Seeds
+```
+php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
 ```
 
 - Activate Laravel Framework plugin in PHPStorm
