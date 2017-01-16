@@ -12,23 +12,23 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ## Installation
 
-1. First - clone repo
+- First - clone repo
 ```
 git clone https://github.com/yoshkin/chiaroecom.git
 ```
 
-2. Second - update packages
+- Second - update packages
 ```
 composer update
 ```
 
-3. Create your .env and setup it (sql)
-4. Make you new key
+- Create your .env and setup it (sql)
+- Make you new key
 ```
 php artisan key:generate
 ```
 
-5. Migrate sql queries
+- Migrate sql queries
 ```
 php artisan migrate
 ```
