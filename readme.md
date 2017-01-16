@@ -28,28 +28,33 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ## Installation
 
-- First - clone repo
+- First - clone repo (Run in your terminal - you need git installed) and change dir to your project
 ```
-git clone https://github.com/yoshkin/chiaroecom.git
+git clone https://github.com/yoshkin/chiaroecom.git yourproject.dev
+cd yourproject.dev
 ```
 
-- Second - update packages
+- Second - install packages, create .env, generate KEY and update packages (Run in your "yourproject.dev" folder)
 ```
-composer install
 php -r "file_exists('.env') || copy('.env.example', '.env');"
+composer install
 php artisan key:generate
 composer update
 ```
 
-- Setup your ENV sql connection (.env)
+- Setup (change it) your ENV sql connection (.env)
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
 
-- Migrate sql queries
+- Migrate sql queries + DB demo seeds for Settings Model
 ```
 php artisan migrate
-```
-
-- DB Seeds
-```
 php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
 ```
 
