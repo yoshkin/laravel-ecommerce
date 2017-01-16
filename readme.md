@@ -17,7 +17,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - "backpack/settings": "^2.0" (Settings CRUD Model + Controller)
 - "backpack/pagemanager": "^1.1" (Page CRUD Model + Controller + PageTemplate + PagesController)
 - "cviebrock/eloquent-sluggable": "^4.1" (Create slugs automaticaly)
-- "backpack/permissionmanager": "^2.1" (Permission Manager - [![Usage 1]](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [![Usage 2]](https://github.com/spatie/laravel-permission#usage))
+- "backpack/permissionmanager": "^2.1" (Permission Manager - [Usage 1](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [Usage 2](https://github.com/spatie/laravel-permission#usage))
 - Menu CRUD Model + Controller
 - News (Articles + Categories + Tags) CRUD Models + Controllers
 
