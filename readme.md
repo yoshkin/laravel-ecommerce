@@ -35,14 +35,13 @@ git clone https://github.com/yoshkin/chiaroecom.git
 
 - Second - update packages
 ```
+composer install
+php -r "file_exists('.env') || copy('.env.example', '.env');"
+php artisan key:generate
 composer update
 ```
 
-- Create your .env and setup it (sql)
-- Make you new key
-```
-php artisan key:generate
-```
+- Setup your ENV sql connection (.env)
 
 - Migrate sql queries
 ```
