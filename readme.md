@@ -16,8 +16,10 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - "backpack/crud": "^3.1"
 
 ## Pack for development (local) ENV additionaly contains
-- "backpack/generators": "^1.1",
+- "backpack/generators": "^1.1"
 - "laracasts/generators": "^1.1"
+- "barryvdh/laravel-ide-helper": "^2.2"
+- "barryvdh/laravel-debugbar": "^2.3"
 
 ## Installation
 
@@ -40,6 +42,11 @@ php artisan key:generate
 - Migrate sql queries
 ```
 php artisan migrate
+```
+
+- Activate Laravel Framework plugin in PHPStorm
+```
+Settings -> Laravel -> Enable for this project
 ```
 
 ## License
