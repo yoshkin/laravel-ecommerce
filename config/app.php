@@ -185,6 +185,12 @@ return [
         Backpack\CRUD\CrudServiceProvider::class,
         Backpack\Settings\SettingsServiceProvider::class,
 
+        /**
+         * Backpack PageManager Service Providers
+         */
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Backpack\PageManager\PageManagerServiceProvider::class,
+        
     ],
 
     /*
