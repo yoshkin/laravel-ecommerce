@@ -12,12 +12,12 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ## Pack for production ENV contains
 - "laravel/framework": "5.3.*" (Laravel Framework)
-- "backpack/base": "^0.7.14" (Base Backpack package)
-- "backpack/crud": "^3.1" (Basic CRUD package)
-- "backpack/settings": "^2.0" (Settings CRUD Model + Controller)
-- "backpack/pagemanager": "^1.1" (Page CRUD Model + Controller + PageTemplate + PagesController)
+- "backpack/base": "^0.7.14" (Backpack Base package)
+- "backpack/crud": "^3.1" (Backpack CRUD package)
+- "backpack/settings": "^2.0" (Backpack Settings CRUD Model + Controller)
+- "backpack/pagemanager": "^1.1" (Backpack Page CRUD Model + Controller + PageTemplate + PagesController)
 - "cviebrock/eloquent-sluggable": "^4.1" (Create slugs automaticaly)
-- "backpack/permissionmanager": "^2.1" (Permission Manager - [Usage 1](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [Usage 2](https://github.com/spatie/laravel-permission#usage))
+- "backpack/permissionmanager": "^2.1" (Backpack Permission Manager - [Usage 1](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [Usage 2](https://github.com/spatie/laravel-permission#usage))
 - Menu CRUD Model + Controller
 - News (Articles + Categories + Tags) CRUD Models + Controllers
 
@@ -73,3 +73,4 @@ Settings -> Laravel -> Enable for this project
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Backpack is free for non-commercial use and $19/project for commercial use. Please see [License File](https://github.com/Laravel-Backpack/Base/blob/master/LICENSE.md) and [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
