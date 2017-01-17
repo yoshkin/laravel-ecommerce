@@ -1,4 +1,4 @@
-# *Laravel*Ecommerce - Laravel Based Ecommerce CMS
+# LaravelEcommerce
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
@@ -10,7 +10,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## *Laravel*Ecommerce - Laravel Based Ecommerce CMS
 ## Pack for production ENV contains
 - "laravel/framework": "5.3.*" (Laravel Framework)
 - "backpack/base": "^0.7.14" (Backpack Base package)
