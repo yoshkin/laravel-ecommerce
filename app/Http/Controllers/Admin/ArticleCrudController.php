@@ -53,7 +53,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'category_id',
                                 'entity' => 'category',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "App\Models\ArticleCategory",
                             ]);
 
         // ------ CRUD FIELDS
@@ -100,7 +100,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'category_id',
                                 'entity' => 'category',
                                 'attribute' => 'name',
-                                'model' => "App\Models\Category",
+                                'model' => "App\Models\ArticleCategory",
                             ]);
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
                                 'label' => 'Tags',
@@ -108,7 +108,7 @@ class ArticleCrudController extends CrudController
                                 'name' => 'tags', // the method that defines the relationship in your Model
                                 'entity' => 'tags', // the method that defines the relationship in your Model
                                 'attribute' => 'name', // foreign key attribute that is shown to user
-                                'model' => "App\Models\Tag", // foreign key model
+                                'model' => "App\Models\ArticleTag", // foreign key model
                                 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
                             ]);
         $this->crud->addField([    // ENUM

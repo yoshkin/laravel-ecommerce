@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\CategoryRequest as StoreRequest;
-use App\Http\Requests\CategoryRequest as UpdateRequest;
+use App\Http\Requests\ArticleTagRequest as StoreRequest;
+use App\Http\Requests\ArticleTagRequest as UpdateRequest;
 
-class CategoryCrudController extends CrudController
+class ArticleTagCrudController extends CrudController
 {
     public function __construct()
     {
@@ -18,18 +18,15 @@ class CategoryCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel("App\Models\Category");
-        $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/category');
-        $this->crud->setEntityNameStrings('category', 'categories');
+        $this->crud->setModel("App\Models\ArticleTag");
+        $this->crud->setRoute(config('backpack.base.route_prefix', 'admin').'/article-tag');
+        $this->crud->setEntityNameStrings('article tag', 'article tags');
 
         /*
         |--------------------------------------------------------------------------
         | COLUMNS AND FIELDS
         |--------------------------------------------------------------------------
         */
-
-        $this->crud->allowAccess('reorder');
-        $this->crud->enableReorder('name', 2);
 
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
@@ -39,14 +36,6 @@ class CategoryCrudController extends CrudController
         $this->crud->addColumn([
                                 'name' => 'slug',
                                 'label' => 'Slug',
-                            ]);
-        $this->crud->addColumn([
-                                'label' => 'Parent',
-                                'type' => 'select',
-                                'name' => 'parent_id',
-                                'entity' => 'parent',
-                                'attribute' => 'name',
-                                'model' => "App\Models\Category",
                             ]);
 
         // ------ CRUD FIELDS
@@ -60,14 +49,6 @@ class CategoryCrudController extends CrudController
                                 'type' => 'text',
                                 'hint' => 'Will be automatically generated from your name, if left empty.',
                                 // 'disabled' => 'disabled'
-                            ]);
-        $this->crud->addField([
-                                'label' => 'Parent',
-                                'type' => 'select',
-                                'name' => 'parent_id',
-                                'entity' => 'parent',
-                                'attribute' => 'name',
-                                'model' => "App\Models\Category",
                             ]);
     }
 

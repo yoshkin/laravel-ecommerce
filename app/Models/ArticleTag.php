@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class Tag extends Model
+class ArticleTag extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;

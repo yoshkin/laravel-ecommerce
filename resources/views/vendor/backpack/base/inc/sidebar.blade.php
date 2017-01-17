@@ -29,8 +29,15 @@
                 <a href="#"><i class="fa fa-newspaper-o"></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/article') }}"><i class="fa fa-newspaper-o"></i> <span>Articles</span></a></li>
-                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/category') }}"><i class="fa fa-list"></i> <span>Categories</span></a></li>
-                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/article-category') }}"><i class="fa fa-list"></i> <span>Categories</span></a></li>
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/article-tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#"><i class="fa fa-list"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/product-category') }}"><i class="fa fa-sitemap"></i> <span>Product Categories</span></a></li>
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/product-item') }}"><i class="fa fa-newspaper-o"></i> <span>Product Items</span></a></li>
                 </ul>
               </li>
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}"><i class="fa fa-files-o"></i> <span>File manager</span></a></li>

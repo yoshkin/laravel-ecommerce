@@ -20,8 +20,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'admin'], 'namespace'
     CRUD::resource('menu-item', 'MenuItemCrudController');
     // Backpack\NewsCRUD
     CRUD::resource('article', 'ArticleCrudController');
-    CRUD::resource('category', 'CategoryCrudController');
-    CRUD::resource('tag', 'TagCrudController');
+    CRUD::resource('article-category', 'ArticleCategoryCrudController');
+    CRUD::resource('article-tag', 'ArticleTagCrudController');
+    CRUD::resource('product-category', 'ProductCategoryCrudController');
 });
 
 
