@@ -12,14 +12,14 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'New Chiaro.ru',
+    'project_name' => 'Laravel Ecommerce',
 
     // Menu logos
-    'logo_lg'   => '<b>Chiaro</b>.ru',
-    'logo_mini' => '<b>C</b>h',
+    'logo_lg'   => '<b>Laravel</b>Ecommerce',
+    'logo_mini' => '<b>L</b>E',
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Alexey Yashenkov',
+    'developer_name' => 'Aleksey Y.',
 
     // Developer website. Link in footer.
     'developer_link' => 'http://yashenkov.ru',
