@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class ProductCategory extends Model
+class Product extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;
@@ -18,15 +18,16 @@ class ProductCategory extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    protected $table = 'categories';
+    protected $table = 'products';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-     protected $fillable = ['name','parent_id','visible','meta_title','meta_keywords','meta_description','description'];
+    protected $fillable = ['name','brand_id','slug','visible','featured','price','old_price','meta_title','meta_keywords','meta_description','description'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'visible'  => 'boolean'
+        'featured'  => 'boolean',
+        'visible'   => 'boolean',
     ];
 
     /**
@@ -54,19 +55,14 @@ class ProductCategory extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-    public function parent()
+    public function brand()
     {
-        return $this->belongsTo('App\Models\ProductCategory', 'parent_id');
+        return $this->belongsTo('App\Models\Brand', 'brand_id');
     }
 
-    public function children()
+    public function categories()
     {
-        return $this->hasMany('App\Models\ProductCategory', 'parent_id');
-    }
-
-    public function products()
-    {
-        return $this->hasMany('App\Models\Product');
+        return $this->belongsToMany('App\Models\ProductCategory', 'products_categories','product_id','category_id');
     }
 
     /*
@@ -74,12 +70,6 @@ class ProductCategory extends Model
 	| SCOPES
 	|--------------------------------------------------------------------------
 	*/
-    public function scopeFirstLevelItems($query)
-    {
-        return $query->where('depth', '1')
-            ->orWhere('depth', null)
-            ->orderBy('lft', 'ASC');
-    }
 
     public function scopeVisible($query)
     {

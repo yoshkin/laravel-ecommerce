@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProductCategoryRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
+class BrandRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,10 @@ class ProductCategoryRequest extends \Backpack\CRUD\app\Http\Requests\CrudReques
     {
         return [
             'name' => 'required|min:2|max:255',
-            'slug' => 'unique:categories,slug,'.\Request::get('id'),
+            'slug' => 'unique:brands,slug,'.\Request::get('id'),
             'meta_title' => 'required|min:2',
             'meta_description' => 'required|min:2',
             'description' => 'required|min:2',
-//            'parent_id' => 'required',
         ];
     }
 

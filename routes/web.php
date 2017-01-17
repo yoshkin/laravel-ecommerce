@@ -18,11 +18,14 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'admin'], 'namespace' => 'Admin'], function () {
     // Backpack\MenuCRUD
     CRUD::resource('menu-item', 'MenuItemCrudController');
-    // Backpack\NewsCRUD
+    // Backpack\NewsCRUD (Refactored)
     CRUD::resource('article', 'ArticleCrudController');
     CRUD::resource('article-category', 'ArticleCategoryCrudController');
     CRUD::resource('article-tag', 'ArticleTagCrudController');
+    //Products CRUD (Category, Brand, Product)
     CRUD::resource('product-category', 'ProductCategoryCrudController');
+    CRUD::resource('product-item', 'ProductCrudController');
+    CRUD::resource('product-brand', 'BrandCrudController');
 });
 
 

@@ -7,7 +7,7 @@ use Backpack\CRUD\CrudTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class ProductCategory extends Model
+class Brand extends Model
 {
     use CrudTrait;
     use Sluggable, SluggableScopeHelpers;
@@ -18,11 +18,11 @@ class ProductCategory extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    protected $table = 'categories';
+    protected $table = 'brands';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-     protected $fillable = ['name','parent_id','visible','meta_title','meta_keywords','meta_description','description'];
+    protected $fillable = ['name','visible','meta_title','meta_keywords','meta_description','description','image','slug'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
@@ -54,15 +54,6 @@ class ProductCategory extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-    public function parent()
-    {
-        return $this->belongsTo('App\Models\ProductCategory', 'parent_id');
-    }
-
-    public function children()
-    {
-        return $this->hasMany('App\Models\ProductCategory', 'parent_id');
-    }
 
     public function products()
     {
@@ -74,19 +65,13 @@ class ProductCategory extends Model
 	| SCOPES
 	|--------------------------------------------------------------------------
 	*/
-    public function scopeFirstLevelItems($query)
-    {
-        return $query->where('depth', '1')
-            ->orWhere('depth', null)
-            ->orderBy('lft', 'ASC');
-    }
 
     public function scopeVisible($query)
     {
         return $query->where('visible', '1')
             ->orderBy('lft', 'ASC');
     }
-
+    
     /*
 	|--------------------------------------------------------------------------
 	| ACCESORS

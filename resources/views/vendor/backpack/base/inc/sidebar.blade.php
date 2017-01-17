@@ -36,6 +36,7 @@
               <li class="treeview">
                 <a href="#"><i class="fa fa-list"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/product-brand') }}"><i class="fa fa-star"></i> <span>Product Brands</span></a></li>
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/product-category') }}"><i class="fa fa-sitemap"></i> <span>Product Categories</span></a></li>
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/product-item') }}"><i class="fa fa-newspaper-o"></i> <span>Product Items</span></a></li>
                 </ul>

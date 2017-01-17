@@ -20,6 +20,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 - "backpack/permissionmanager": "^2.1" (Backpack Permission Manager - [Usage 1](https://github.com/Laravel-Backpack/PermissionManager#using-permissions) and [Usage 2](https://github.com/spatie/laravel-permission#usage))
 - Menu CRUD Model + Controller
 - News (Articles + Categories + Tags) CRUD Models + Controllers
+- Products (Categories + Brands + Products) CRUD Models + Controllers + Requests
 
 ## Pack for development (local) ENV additionaly contains
 - "backpack/generators": "^1.1" (console backpack crud generator)
