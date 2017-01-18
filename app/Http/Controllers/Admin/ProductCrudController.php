@@ -152,7 +152,7 @@ class ProductCrudController extends CrudController
                 'class' => 'form-group col-md-6'
             ],
         ]);
-        
+
         $this->crud->addField([    // TEXT
             'name' => 'meta_title',
             'label' => 'Meta Title',
@@ -178,11 +178,13 @@ class ProductCrudController extends CrudController
             'placeholder' => 'Your meta description here',
         ]);
 
-
 //        $this->crud->addField([    // Image
-//            'name' => 'image',
-//            'label' => 'Image',
-//            'type' => 'browse',
+//            'label' => 'Product Image',
+//            'type' => 'select',
+//            'name' => 'product_id',
+//            'entity' => 'images',
+//            'attribute' => 'filename',
+//            'model' => "App\Models\Image",
 //        ]);
 
         $this->crud->enableAjaxTable();

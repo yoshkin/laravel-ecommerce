@@ -33,6 +33,7 @@ class ProductRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
             'price' => 'required|integer',
             'categories' => 'required',
             'brand_id' => 'required',
+//            'images' => 'image',
         ];
     }
 

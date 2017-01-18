@@ -17,8 +17,6 @@ class CreateProductCategoryTable extends Migration
         Schema::create('product_categories', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->timestamps();
-            $table->softDeletes();
             $table->string('name');
             $table->string('meta_title');
             $table->string('meta_keywords');
@@ -30,6 +28,8 @@ class CreateProductCategoryTable extends Migration
             $table->integer('lft')->unsigned()->nullable();
             $table->integer('rgt')->unsigned()->nullable();
             $table->integer('depth')->unsigned()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
