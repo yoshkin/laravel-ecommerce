@@ -182,7 +182,7 @@ class ProductCrudController extends CrudController
         $this->crud->addField([    // Image
             // Select2Multiple = n-n relationship (with pivot table)
             'label' => 'Product Images',
-            'type' => 'browse',
+            'type' => 'upload_multiple',
             'name' => 'images',
             'entity' => 'images',
             'attribute' => 'filename',
@@ -262,12 +262,22 @@ class ProductCrudController extends CrudController
 	public function store(StoreRequest $request)
 	{
 		// your additional operations before save here
-        $image = new Image();
-        $image->filename = $request->images;
-        $image->position = '0';
-        $image->save();
+        foreach ($request->images as $img) {
+            if(isset($img) && !empty($img)) {
+                $image = new Image();
+                $image->filename = $img;
+                $image->position = '0';
+                $image->save();
+                $imagesArray[] = $image->id;
+            }
+        }
+//        var_dump($imagesArray); var_dump($request['categories']);
+        $request['images'] = $imagesArray;
+//        var_dump($request['images']);die;
+//        $request->merge(array('images' => [$image->id]));
+//        $request['image_id'] = $image->id;
 
-        $redirect_location = parent::storeCrud();
+        $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
