@@ -286,12 +286,19 @@ class ProductCrudController extends CrudController
 	public function update(UpdateRequest $request)
 	{
 		// your additional operations before save here
-//        $image = new Image();
-//        $image->filename = $request->images;
-//        $image->position = '0';
-//        $image->save();
+        foreach ($request->images as $img) {
+            if(isset($img) && !empty($img)) {
+                $image = new Image();
+                $image->filename = $img;
+                $image->position = '0';
+                $image->save();
+                $imagesArray[] = $image->id;
+            }
+        }
+//        var_dump($imagesArray); var_dump($request['categories']);
+        $request['images'] = $imagesArray;
 
-        $redirect_location = parent::updateCrud();
+        $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
