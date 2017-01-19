@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Image;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -178,14 +179,18 @@ class ProductCrudController extends CrudController
             'placeholder' => 'Your meta description here',
         ]);
 
-//        $this->crud->addField([    // Image
-//            'label' => 'Product Image',
-//            'type' => 'select',
-//            'name' => 'product_id',
-//            'entity' => 'images',
-//            'attribute' => 'filename',
-//            'model' => "App\Models\Image",
-//        ]);
+        $this->crud->addField([    // Image
+            // Select2Multiple = n-n relationship (with pivot table)
+            'label' => 'Product Images',
+            'type' => 'browse',
+            'name' => 'images',
+            'entity' => 'images',
+            'attribute' => 'filename',
+            'model' => "App\Models\Image",
+//            'upload' => true,
+//            'disk' => 'uploads',
+            'pivot' => true,
+        ]);
 
         $this->crud->enableAjaxTable();
 
@@ -257,6 +262,11 @@ class ProductCrudController extends CrudController
 	public function store(StoreRequest $request)
 	{
 		// your additional operations before save here
+        $image = new Image();
+        $image->filename = $request->images;
+        $image->position = '0';
+        $image->save();
+
         $redirect_location = parent::storeCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
@@ -266,6 +276,11 @@ class ProductCrudController extends CrudController
 	public function update(UpdateRequest $request)
 	{
 		// your additional operations before save here
+//        $image = new Image();
+//        $image->filename = $request->images;
+//        $image->position = '0';
+//        $image->save();
+
         $redirect_location = parent::updateCrud();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
