@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Image;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -178,14 +179,18 @@ class ProductCrudController extends CrudController
             'placeholder' => 'Your meta description here',
         ]);
 
-//        $this->crud->addField([    // Image
-//            'label' => 'Product Image',
-//            'type' => 'select',
-//            'name' => 'product_id',
-//            'entity' => 'images',
-//            'attribute' => 'filename',
-//            'model' => "App\Models\Image",
-//        ]);
+        $this->crud->addField([    // Image
+            // Select2Multiple = n-n relationship (with pivot table)
+            'label' => 'Product Images',
+            'type' => 'upload_multiple',
+            'name' => 'images',
+            'entity' => 'images',
+            'attribute' => 'filename',
+            'model' => "App\Models\Image",
+//            'upload' => true,
+//            'disk' => 'uploads',
+            'pivot' => true,
+        ]);
 
         $this->crud->enableAjaxTable();
 
@@ -257,7 +262,22 @@ class ProductCrudController extends CrudController
 	public function store(StoreRequest $request)
 	{
 		// your additional operations before save here
-        $redirect_location = parent::storeCrud();
+        foreach ($request->images as $img) {
+            if(isset($img) && !empty($img)) {
+                $image = new Image();
+                $image->filename = $img;
+                $image->position = '0';
+                $image->save();
+                $imagesArray[] = $image->id;
+            }
+        }
+//        var_dump($imagesArray); var_dump($request['categories']);
+        $request['images'] = $imagesArray;
+//        var_dump($request['images']);die;
+//        $request->merge(array('images' => [$image->id]));
+//        $request['image_id'] = $image->id;
+
+        $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
@@ -266,7 +286,19 @@ class ProductCrudController extends CrudController
 	public function update(UpdateRequest $request)
 	{
 		// your additional operations before save here
-        $redirect_location = parent::updateCrud();
+        foreach ($request->images as $img) {
+            if(isset($img) && !empty($img)) {
+                $image = new Image();
+                $image->filename = $img;
+                $image->position = '0';
+                $image->save();
+                $imagesArray[] = $image->id;
+            }
+        }
+//        var_dump($imagesArray); var_dump($request['categories']);
+        $request['images'] = $imagesArray;
+
+        $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;

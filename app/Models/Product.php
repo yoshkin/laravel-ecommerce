@@ -67,9 +67,14 @@ class Product extends Model
         return $this->belongsToMany('App\Models\ProductCategory', 'products_categories','product_id','category_id');
     }
 
+    public function images()
+    {
+        return $this->belongsToMany('App\Models\Image', 'products_images','product_id','image_id');
+    }
+
 //    public function images()
 //    {
-//        return $this->hasMany('App\Models\Image');
+//        return $this->morphMany('App\Models\Image', 'imageable');
 //    }
 
     /*
