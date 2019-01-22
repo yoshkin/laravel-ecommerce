@@ -32,7 +32,7 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 - First - clone repo (Run in your terminal - you need git installed) and change dir to your project
 ```
-git clone https://github.com/yoshkin/chiaroecom.git yourproject.dev
+git clone https://github.com/yoshkin/laravel-ecommerce.git yourproject.dev
 cd yourproject.dev
 ```
 
